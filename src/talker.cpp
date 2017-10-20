@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2008, Morgan Quigley and Willow Garage, Inc.
+ * @copyright Copyright (C) 2008, Morgan Quigley and Willow Garage, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -38,11 +38,11 @@
 
 
 /**
- * This tutorial demonstrates simple sending of messages over the ROS system.
+ * @brief This tutorial demonstrates simple sending of messages over the ROS system.
  */
 int main(int argc, char **argv) {
   /**
-   * The ros::init() function needs to see argc and argv so that it can perform
+   * @detail The ros::init() function needs to see argc and argv so that it can perform
    * any ROS arguments and name remapping that were provided at the command line.
    * For programmatic remappings you can use a different version of init() which takes
    * remappings directly, but for most command-line programs, passing argc and argv is
@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
 // %EndTag(INIT)%
 
   /**
-   * NodeHandle is the main access point to communications with the ROS system.
+   * @detail NodeHandle is the main access point to communications with the ROS system.
    * The first NodeHandle constructed will fully initialize this node, and the last
    * NodeHandle destructed will close down the node.
    */
@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
 // %EndTag(NODEHANDLE)%
 
   /**
-   * The advertise() function is how you tell ROS that you want to
+   * @detail The advertise() function is how you tell ROS that you want to
    * publish on a given topic name. This invokes a call to the ROS
    * master node, which keeps a registry of who is publishing and who
    * is subscribing. After this advertise() call is made, the master
@@ -90,7 +90,7 @@ int main(int argc, char **argv) {
 // %EndTag(LOOP_RATE)%
 
   /**
-   * A count of how many messages we have sent. This is used to create
+   * @detail A count of how many messages we have sent. This is used to create
    * a unique string for each message.
    */
 // %Tag(ROS_OK)%

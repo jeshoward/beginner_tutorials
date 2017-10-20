@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2008, Morgan Quigley and Willow Garage, Inc.
+ * @copyright Copyright (C) 2008, Morgan Quigley and Willow Garage, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,17 +30,18 @@
 #include "std_msgs/String.h"
 
 /**
- * This tutorial demonstrates simple receipt of messages over the ROS system.
+ * @brief This tutorial demonstrates simple receipt of messages over the ROS system.
+ * @param The message the callback will display
  */
 // %Tag(CALLBACK)%
-void chatterCallback(const std_msgs::String::ConstPtr& msg) {
+void ChatterCallback(const std_msgs::String::ConstPtr& msg) {
   ROS_INFO("I heard: [%s]", msg->data.c_str());
 }
 // %EndTag(CALLBACK)%
 
 int main(int argc, char **argv) {
   /**
-   * The ros::init() function needs to see argc and argv so that it can perform
+   * @detail The ros::init() function needs to see argc and argv so that it can perform
    * any ROS arguments and name remapping that were provided at the command line.
    * For programmatic remappings you can use a different version of init() which takes
    * remappings directly, but for most command-line programs, passing argc and argv is
@@ -52,14 +53,14 @@ int main(int argc, char **argv) {
   ros::init(argc, argv, "listener");
 
   /**
-   * NodeHandle is the main access point to communications with the ROS system.
+   * @detail NodeHandle is the main access point to communications with the ROS system.
    * The first NodeHandle constructed will fully initialize this node, and the last
    * NodeHandle destructed will close down the node.
    */
   ros::NodeHandle n;
 
   /**
-   * The subscribe() call is how you tell ROS that you want to receive messages
+   * @detail The subscribe() call is how you tell ROS that you want to receive messages
    * on a given topic.  This invokes a call to the ROS
    * master node, which keeps a registry of who is publishing and who
    * is subscribing.  Messages are passed to a callback function, here
@@ -74,11 +75,11 @@ int main(int argc, char **argv) {
    * away the oldest ones.
    */
 // %Tag(SUBSCRIBER)%
-  ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
+  ros::Subscriber sub = n.subscribe("chatter", 1000, ChatterCallback);
 // %EndTag(SUBSCRIBER)%
 
   /**
-   * ros::spin() will enter a loop, pumping callbacks.  With this version, all
+   * @detail ros::spin() will enter a loop, pumping callbacks.  With this version, all
    * callbacks will be called from within this thread (the main one).  ros::spin()
    * will exit when Ctrl-C is pressed, or the node is shutdown by the master.
    */
