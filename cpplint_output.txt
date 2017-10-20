@@ -1,5 +1,0 @@
-./src/listener.cpp:37:  { should almost always be at the end of the previous line  [whitespace/braces] [4]
-./src/listener.cpp:43:  { should almost always be at the end of the previous line  [whitespace/braces] [4]
-./src/talker.cpp:35:  Found C++ system header after other header. Should be: talker.h, c system, c++ system, other.  [build/include_order] [4]
-./src/talker.cpp:41:  { should almost always be at the end of the previous line  [whitespace/braces] [4]
-./src/talker.cpp:97:  { should almost always be at the end of the previous line  [whitespace/braces] [4]
