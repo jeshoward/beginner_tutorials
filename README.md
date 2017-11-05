@@ -11,7 +11,11 @@ The original goal of the project was to install ROS and Catkin, create a workspa
 2. [Understanding ROS Services and Parameters](http://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams)
 3. [Using rqt_console and roslaunch](http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch)
 
-Additional services added to the beginner tutorials are: xxx
+Additional services added to the beginner tutorials are: Add Two Ints and Multiply Two Ints
+
+The Add Two Ints service was implemented as per the tutorial [Writing a Simple Service and Client](http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29). 
+
+The Multiply Two Ints service was a simple modification to the Add Two Ints service.
 
 ## Getting Started
 
@@ -103,25 +107,26 @@ cd ~/catkin_ws/
 source ./devel/setup.bash
 ```
 
-Next we will start our "talker" publisher:
+Next we will start our launcher, which begins the addition and multiplication servers:
 ```
-rosrun beginner_tutorials talker
-```
-
-Running the talker will again tie up your terminal window, so we'll need to open an additional window to run the listener.
-
-In the new terminal window (your third) source the workspace's setup.sh file again:
-```
-cd ~/catkin_ws/
-source ./devel/setup.bash
+roslaunch beginner_tutorials week10_hw.launch
 ```
 
-Then begin running the listener:
+Open a new terminal window to run the addition or multiplication services. 
+
+#### Add Two Ints
+Add two ints takes two integer arguments, X and Y, and adds them together.
 ```
-rosrun beginner_tutorials listener
+rosrun beginner_tutorials add_two_ints_client X Y
 ```
 
-When you are done, press Ctrl-C to terminate the talker and the listener.
+#### Multiply Two Ints
+Multiply two ints takes two integer argments, X and Y, and multiplies them together
+```
+rosrun beginner_tutorials multiply_two_ints_client X Y
+```
+
+When you are done, press Ctrl-C to terminate the servers.
 
 ## License
 BSD 3-Clause License
