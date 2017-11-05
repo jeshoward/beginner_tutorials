@@ -32,6 +32,7 @@
  */
 
 #include "ros/ros.h"
+#include "ros/console.h"
 #include "beginner_tutorials/AddTwoInts.h"
 
 /*
@@ -39,10 +40,11 @@
  * @param &req request for two integers, a and b
  * @param &res response for the sum of a and b
  */
-bool add(beginner_tutorials::AddTwoInts::Request  &req,
+bool add(beginner_tutorials::AddTwoInts::Request &req,
          beginner_tutorials::AddTwoInts::Response &res) {
   // Stores the sum of a and b into the result
   res.sum = req.a + req.b;
+  ROS_DEBUG_STREAM("req.a: " << req.a << ", req.b: " << req.b);
   // publishes messages showing what was requested and what was returned
   ROS_INFO("request: x=%ld, y=%ld", static_cast<int64_t>(req.a),
                                     static_cast<int64_t>(req.b));
