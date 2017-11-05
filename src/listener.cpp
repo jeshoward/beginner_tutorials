@@ -4,7 +4,6 @@
  * @file listener.cpp
  * @brief Demonstration of how messages are received on ROS
  *
- * @section DESCRIPTION
  * 
  * @copyright Copyright (C) 2017, Jessica Howard
  * @license 3-Clause BSD License
