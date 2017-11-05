@@ -2,7 +2,7 @@
  * 
  * @author Jessica Howard
  * @file add_two_ints_server.cpp
- * @brief Demonstration of how messages are received on ROS
+ * @brief Server for addition service
  *
  * 
  * @copyright Copyright (C) 2017, Jessica Howard
@@ -34,10 +34,17 @@
 #include "ros/ros.h"
 #include "beginner_tutorials/AddTwoInts.h"
 
+/*
+ * @brief Addition of two integer parameters
+ * @param &req request for two integers, a and b
+ * @param &res response for the sum of a and b
+ */
 bool add(beginner_tutorials::AddTwoInts::Request  &req,
          beginner_tutorials::AddTwoInts::Response &res)
 {
+  //Stores the sum of a and b into the result
   res.sum = req.a + req.b;
+  //publishes messages showing what was requested and what was returned
   ROS_INFO("request: x=%ld, y=%ld", (long int)req.a, (long int)req.b);
   ROS_INFO("sending back response: [%ld]", (long int)res.sum);
   return true;
@@ -45,9 +52,11 @@ bool add(beginner_tutorials::AddTwoInts::Request  &req,
 
 int main(int argc, char **argv)
 {
+  //Initialize the server
   ros::init(argc, argv, "add_two_ints_server");
   ros::NodeHandle n;
 
+  //Create and advertise the service over ROS
   ros::ServiceServer service = n.advertiseService("add_two_ints", add);
   ROS_INFO("Ready to add two ints.");
   ros::spin();

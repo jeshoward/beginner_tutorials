@@ -35,9 +35,13 @@
 #include "beginner_tutorials/AddTwoInts.h"
 #include <cstdlib>
 
+/*
+ * @brief Client service for the addition service
+ */
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "add_two_ints_client");
+  //Check for proper arguments
   if (argc != 3)
   {
     ROS_INFO("usage: add_two_ints_client X Y");
@@ -45,10 +49,13 @@ int main(int argc, char **argv)
   }
 
   ros::NodeHandle n;
+  //Creates the client for the addition service
   ros::ServiceClient client = n.serviceClient<beginner_tutorials::AddTwoInts>("add_two_ints");
   beginner_tutorials::AddTwoInts srv;
+  //Stores the user's two integers into the request variable
   srv.request.a = atoll(argv[1]);
   srv.request.b = atoll(argv[2]);
+  //Call the server to add
   if (client.call(srv))
   {
     ROS_INFO("Sum: %ld", (long int)srv.response.sum);
