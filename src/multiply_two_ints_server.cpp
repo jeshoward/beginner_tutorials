@@ -40,24 +40,24 @@
  * @param &res response fo the product of a and b
  */
 bool multiply(beginner_tutorials::MultiplyTwoInts::Request  &req,
-         beginner_tutorials::MultiplyTwoInts::Response &res)
-{
-  //Stores the product of a and b into the result
+         beginner_tutorials::MultiplyTwoInts::Response &res) {
+  /* Stores the product of a and b into the result */
   res.product = req.a * req.b;
-  //publishes messages showing what was requested and what was returned
-  ROS_INFO("request: x=%ld, y=%ld", (long int)req.a, (long int)req.b);
-  ROS_INFO("sending back response: [%ld]", (long int)res.product);
+  /* publishes messages showing what was requested and what was returned */
+  ROS_INFO("request: x=%ld, y=%ld", static_cast<int64_t>(req.a),
+                                    static_cast<int64_t>(req.b));
+  ROS_INFO("sending back response: [%ld]", static_cast<int64_t>(res.product));
   return true;
 }
 
-int main(int argc, char **argv)
-{
-  //Initialize the server
+int main(int argc, char **argv) {
+  /* Initialize the server */
   ros::init(argc, argv, "multiply_two_ints_server");
   ros::NodeHandle n;
 
-  //Create and advertise the service over ROS
-  ros::ServiceServer service = n.advertiseService("multiply_two_ints", multiply);
+  /* Create and advertise the service over ROS */
+  ros::ServiceServer service =
+         n.advertiseService("multiply_two_ints", multiply);
   ROS_INFO("Ready to multiply two ints.");
   ros::spin();
 

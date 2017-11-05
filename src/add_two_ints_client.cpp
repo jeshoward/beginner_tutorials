@@ -30,38 +30,35 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
- 
-#include "ros/ros.h"
-#include "beginner_tutorials/AddTwoInts.h"
+
 #include <cstdlib>
+#include "beginner_tutorials/AddTwoInts.h"
+#include "ros/ros.h"
 
 /*
  * @brief Client service for the addition service
  */
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   ros::init(argc, argv, "add_two_ints_client");
-  //Check for proper arguments
-  if (argc != 3)
-  {
+  // Check for proper arguments
+  if (argc != 3)   {
     ROS_INFO("usage: add_two_ints_client X Y");
+    ROS_DEBUG_STREAM_COND(argc != 3, "argc is " << argc);
     return 1;
   }
 
   ros::NodeHandle n;
-  //Creates the client for the addition service
-  ros::ServiceClient client = n.serviceClient<beginner_tutorials::AddTwoInts>("add_two_ints");
+  // Creates the client for the addition service
+  ros::ServiceClient client =
+    n.serviceClient<beginner_tutorials::AddTwoInts>("add_two_ints");
   beginner_tutorials::AddTwoInts srv;
-  //Stores the user's two integers into the request variable
+  // Stores the user's two integers into the request variable
   srv.request.a = atoll(argv[1]);
   srv.request.b = atoll(argv[2]);
-  //Call the server to add
-  if (client.call(srv))
-  {
-    ROS_INFO("Sum: %ld", (long int)srv.response.sum);
-  }
-  else
-  {
+  // Call the server to add
+  if (client.call(srv))   {
+    ROS_INFO("Sum: %ld", static_cast<int64_t>(srv.response.sum));
+  } else {
     ROS_ERROR("Failed to call service add_two_ints");
     return 1;
   }

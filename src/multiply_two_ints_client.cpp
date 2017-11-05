@@ -30,38 +30,34 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
- 
-#include "ros/ros.h"
-#include "beginner_tutorials/MultiplyTwoInts.h"
+
 #include <cstdlib>
+#include "beginner_tutorials/MultiplyTwoInts.h"
+#include "ros/ros.h"
 
 /*
  * @brief Client service for the multiplication service
  */
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   ros::init(argc, argv, "multiply_two_ints_client");
-  //Check for proper arguments
-  if (argc != 3)
-  {
+  /* Check for proper arguments */
+  if (argc != 3)   {
     ROS_INFO("usage: multiply_two_ints_client X Y");
     return 1;
   }
 
   ros::NodeHandle n;
-  //Creates the client for the multiplication service
-  ros::ServiceClient client = n.serviceClient<beginner_tutorials::MultiplyTwoInts>("multiply_two_ints");
+  /* Creates the client for the multiplication service */
+  ros::ServiceClient client =
+    n.serviceClient<beginner_tutorials::MultiplyTwoInts>("multiply_two_ints");
   beginner_tutorials::MultiplyTwoInts srv;
-  //Stores the user's two integers into the request variable
+  /* Stores the user's two integers into the request variable */
   srv.request.a = atoll(argv[1]);
   srv.request.b = atoll(argv[2]);
-  //Call the server to multiply
-  if (client.call(srv))
-  {
-    ROS_INFO("Product: %ld", (long int)srv.response.product);
-  }
-  else
-  {
+  /* Call the server to multiply */
+  if (client.call(srv))   {
+    ROS_INFO("Product: %ld", static_cast<int64_t>(srv.response.product));
+  } else {
     ROS_ERROR("Failed to call service multiply_two_ints");
     return 1;
   }
