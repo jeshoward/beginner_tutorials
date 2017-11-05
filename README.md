@@ -75,7 +75,7 @@ cd ~/catkin_ws/src
 ```
 This is the location you will want to add your new ROS package.
 ```
-git clone --recursive https://github.com/jeshoward/beginner_tutorials
+git clone --b Week10_HW https://github.com/jeshoward/beginner_tutorials
 ```
 
 Navigate back up to your Catkin workspace directory:
