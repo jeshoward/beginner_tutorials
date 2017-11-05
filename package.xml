@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>beginner_tutorials</name>
+  <name>beginner_tutorials - Week10_HW</name>
   <version>0.0.0</version>
-  <description>ENPM808X ROS Beginner Tutorials</description>
+  <description>ENPM808X ROS Services, Logging, and Launch Files</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -13,7 +13,7 @@
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>BSD</license>
+  <license>3-Clause BSD</license>
 
 
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
