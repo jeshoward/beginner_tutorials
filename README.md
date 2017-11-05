@@ -1,12 +1,17 @@
-# ENPM808X - ROS Beginner Tutorials
-This is the implementation of several ROS beginner tutorials:
+# ENPM808X - ROS Services, Logging, and Launch Files
+This is the continuation of the implementation of several ROS beginner tutorials:
 1. [Creating a Workspace for Catkin](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 2. [Creating a ROS Package](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 3. [Building a ROS Package](http://wiki.ros.org/ROS/Tutorials/BuildingPackages)
 4. [Creating a ROS msg and srv](http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv)
 5. [Writing a Simple Publisher and Subscriber (C++)](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29)
 
-The goal of the project was to install ROS and Catkin, create a workspace, and create a simple publisher and subscriber package.
+The original goal of the project was to install ROS and Catkin, create a workspace, and create a simple publisher and subscriber package. This branch (Week10_HW) continues the effort by applying lessons learned in the following intermediate ROS tutorials:
+1. [Getting started with roswtf](http://wiki.ros.org/ROS/Tutorials/Getting%20started%20with%20roswtf)
+2. [Understanding ROS Services and Parameters](http://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams)
+3. [Using rqt_console and roslaunch](http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch)
+
+Additional services added to the beginner tutorials are: xxx
 
 ## Getting Started
 
