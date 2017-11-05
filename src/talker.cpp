@@ -1,6 +1,12 @@
 /*
- * @copyright Copyright (C) 2008, Morgan Quigley and Willow Garage, Inc.
+ * 
+ * @author Jessica Howard
+ * @file talker.cpp
+ * @brief Demonstration of how messages are sent on ROS
  *
+ * 
+ * @copyright Copyright (C) 2017, Jessica Howard
+ * @license 3-Clause BSD License
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *   * Redistributions of source code must retain the above copyright notice,
