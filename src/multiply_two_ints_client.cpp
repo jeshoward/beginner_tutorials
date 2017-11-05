@@ -36,29 +36,68 @@
 #include "ros/ros.h"
 
 /*
+ * @brief determines if an input string is an integer
+ */
+bool legal_int(char *str) {
+  char *iter = str;
+  std::string s(str);
+  bool decimal = false;
+  bool letter = false;
+
+  for (std::string::iterator it = s.begin(), end = s.end(); it != end; ++it) {
+    if (!isdigit(*it)) {
+      if (*it == '.')
+        decimal = true;
+      else
+        letter = true;
+    }
+  }
+  if (letter) {
+    ROS_ERROR_STREAM(str << " is not a number.");
+    return false;
+  }
+
+  if (decimal) {
+    ROS_WARN_STREAM(str << " is not an integer and will be truncated.");
+  }
+  return true;
+}
+
+/*
  * @brief Client service for the multiplication service
  */
 int main(int argc, char **argv) {
   ros::init(argc, argv, "multiply_two_ints_client");
-  /* Check for proper arguments */
+  // Check for proper arguments
   if (argc != 3)   {
     ROS_INFO("usage: multiply_two_ints_client X Y");
+    ROS_DEBUG_STREAM_COND(argc != 3, "argc is " << argc);
     return 1;
   }
 
   ros::NodeHandle n;
-  /* Creates the client for the multiplication service */
+  // Creates the client for the multiplication service
   ros::ServiceClient client =
     n.serviceClient<beginner_tutorials::MultiplyTwoInts>("multiply_two_ints");
   beginner_tutorials::MultiplyTwoInts srv;
-  /* Stores the user's two integers into the request variable */
-  srv.request.a = atoll(argv[1]);
-  srv.request.b = atoll(argv[2]);
-  /* Call the server to multiply */
-  if (client.call(srv))   {
-    ROS_INFO("Product: %ld", static_cast<int64_t>(srv.response.product));
+  ROS_DEBUG_STREAM("argv[1]: " << argv[1] << ", argv[2]: " <<argv[2]);
+
+  // Stores the user's two integers into the request variable
+  if (legal_int(argv[1]) && legal_int(argv[2])) {
+    srv.request.a = atoll(argv[1]);
+    srv.request.b = atoll(argv[2]);
+
+    // Call the server to add
+    if (client.call(srv))   {
+      ROS_INFO("Sum: %ld", static_cast<int64_t>(srv.response.product));
+    } else {
+      ROS_ERROR("Failed to call service multiply_two_ints");
+      return 1;
+    }
+
+    return 0;
   } else {
-    ROS_ERROR("Failed to call service multiply_two_ints");
+    ROS_FATAL("Arguments must be numeric.");
     return 1;
   }
 
