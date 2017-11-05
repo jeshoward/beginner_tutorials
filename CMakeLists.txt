@@ -6,8 +6,8 @@ project(beginner_tutorials)
 find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs genmsg)
 
 ## Declare ROS messages and services
-add_message_files(FILES CustMsg.msg)
-add_service_files(FILES CustomMessage.srv)
+add_message_files(FILES Num.msg CustMsg.msg)
+add_service_files(FILES AddTwoInts.srv)
 
 ## Generate added messages and services
 generate_messages(DEPENDENCIES std_msgs)
