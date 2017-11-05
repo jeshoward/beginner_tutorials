@@ -35,9 +35,13 @@
 #include "beginner_tutorials/MultiplyTwoInts.h"
 #include <cstdlib>
 
+/*
+ * @brief Client service for the multiplication service
+ */
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "multiply_two_ints_client");
+  //Check for proper arguments
   if (argc != 3)
   {
     ROS_INFO("usage: multiply_two_ints_client X Y");
@@ -45,10 +49,13 @@ int main(int argc, char **argv)
   }
 
   ros::NodeHandle n;
+  //Creates the client for the multiplication service
   ros::ServiceClient client = n.serviceClient<beginner_tutorials::MultiplyTwoInts>("multiply_two_ints");
   beginner_tutorials::MultiplyTwoInts srv;
+  //Stores the user's two integers into the request variable
   srv.request.a = atoll(argv[1]);
   srv.request.b = atoll(argv[2]);
+  //Call the server to multiply
   if (client.call(srv))
   {
     ROS_INFO("Product: %ld", (long int)srv.response.product);
