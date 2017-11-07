@@ -6,5 +6,6 @@
 [src/add_two_ints_server.cpp:36]: (information) Include file: "beginner_tutorials/AddTwoInts.h" not found.
 [src/listener.cpp:35]: (information) Include file: "ros/ros.h" not found.
 [src/listener.cpp:36]: (information) Include file: "std_msgs/String.h" not found.
-[src/talker.cpp:38]: (information) Include file: "ros/ros.h" not found.
-[src/talker.cpp:41]: (information) Include file: "std_msgs/String.h" not found.
+[src/talker.cpp:36]: (information) Include file: "beginner_tutorials/ChangeRate.h" not found.
+[src/talker.cpp:37]: (information) Include file: "ros/ros.h" not found.
+[src/talker.cpp:38]: (information) Include file: "std_msgs/String.h" not found.

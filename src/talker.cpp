@@ -33,15 +33,9 @@
 // %Tag(FULLTEXT)%
 
 #include <sstream>
-
-// %Tag(ROS_HEADER)%
+#include "beginner_tutorials/ChangeRate.h"
 #include "ros/ros.h"
-// %EndTag(ROS_HEADER)%
-// %Tag(MSG_HEADER)%
 #include "std_msgs/String.h"
-// %EndTag(MSG_HEADER)%
-
-
 
 /**
  * @brief This tutorial demonstrates simple sending of messages over the ROS system.
@@ -60,7 +54,6 @@ int main(int argc, char **argv) {
 // %Tag(INIT)%
   ros::init(argc, argv, "talker");
 // %EndTag(INIT)%
-
   /**
    * @detail NodeHandle is the main access point to communications with the ROS system.
    * The first NodeHandle constructed will fully initialize this node, and the last
