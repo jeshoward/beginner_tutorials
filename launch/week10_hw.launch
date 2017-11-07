@@ -4,5 +4,8 @@
     <node pkg="beginner_tutorials" type="listener" name="listener"/>
   </group>
   
-  <node pkg="beginner_tutorials" type="add_two_ints_server" name="addition_server"/>
+  <node pkg="beginner_tutorials" type="add_two_ints_server" name="addition_server"
+		output="log"/>
+  <node pkg="beginner_tutorials" type="add_two_ints_client" name="addition_client"
+  args="$(arg a) $(arg b)" output="log"/>
 </launch>
