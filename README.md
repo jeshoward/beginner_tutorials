@@ -113,9 +113,14 @@ roslaunch beginner_tutorials week10_hw.launch
 Open a new terminal window to run the addition or multiplication services. 
 
 #### Add Two Ints
-Add two ints takes two integer arguments, X and Y, and adds them together.
+Add two ints takes two integer arguments, a and b, and adds them together.
 ```
-rosrun beginner_tutorials add_two_ints_client X Y
+rosrun beginner_tutorials add_two_ints_client a b
+```
+
+You can also input the arguments for a and b from the launcher by using the following code:
+```
+roslaunch beginner_tutorials week10_hw.launch a:=1 b:=2
 ```
 
 When you are done, press Ctrl-C to terminate the servers.
