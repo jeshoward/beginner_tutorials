@@ -128,12 +128,16 @@ cd ~/catkin_ws/
 source ./devel/setup.bash
 ```
 
-Next we will start our launcher, which begins the addition and multiplication servers:
+Next we will start our launcher, which begins the talker and listener:
 ```
-roslaunch beginner_tutorials week10_hw.launch
+roslaunch beginner_tutorials week11_hw.launch
 ```
 
-Open a new terminal window to run the addition or multiplication services. 
+### Recording to a rosbag
+The launch file now supports bagfile recording. It is by default disabled, to enable it for 15 seconds use the following command during launch:
+```
+roslaunch beginner_tutorials week11_hw.launch record_bag:=true
+```
 
 #### Add Two Ints
 Add two ints takes two integer arguments, a and b, and adds them together.
