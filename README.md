@@ -134,9 +134,38 @@ roslaunch beginner_tutorials week11_hw.launch
 ```
 
 ### Recording to a rosbag
-The launch file now supports bagfile recording. It is by default disabled, to enable it for 15 seconds use the following command during launch:
+The launch file now supports bagfile recording. Recording is by default disabled, to enable it for 15 seconds use the following command during launch:
 ```
 roslaunch beginner_tutorials week11_hw.launch record_bag:=true
+```
+
+### Playing a rosbag
+To play the bag you've just recorded, enter the following:
+```
+rosbag play <rosbag_file_name>
+```
+
+To merely inspect the rosbag to find out information about what topics and types it recorded:
+```
+rosbag info <rosbag_file_name>
+```
+
+#### Rosbag demo
+An easy demo to show the functionality of rosbag play and record is to run the listener only, then in a separate window run rosbag record.
+
+First terminal window:
+```
+rosrun beinner_tutorials listener
+```
+
+Second terminal window:
+```
+rosbag record --duration=5 /Week11_HW/chatter
+```
+
+To inspect the bagfile you've just recorded:
+```
+rosbag info <rosbag_file_name>
 ```
 
 #### Add Two Ints
