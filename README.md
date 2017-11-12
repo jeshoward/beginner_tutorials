@@ -1,4 +1,4 @@
-# ENPM808X - ROS Services, Logging, and Launch Files
+# ENPM808X - ROS TF, Unit Testing, and Bag Files
 This is the continuation of the implementation of several ROS beginner tutorials:
 1. [Creating a Workspace for Catkin](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 2. [Creating a ROS Package](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
@@ -14,6 +14,17 @@ The original goal of the project was to install ROS and Catkin, create a workspa
 Additional services added to the beginner tutorials are: Add Two Ints
 
 The Add Two Ints service was implemented as per the tutorial [Writing a Simple Service and Client](http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29). 
+
+The third follow on assignment involved modifying the Talker node to broadcast a tf frame called /talk with parent /world. It also added a Level 2 integration test. The launch file now supports recording using rosbag. The following tutorials were used:
+1. [Writing rostest files](http://wiki.ros.org/rostest/Writing)
+2. [gtest](http://wiki.ros.org/gtest)
+3. [Recording and playing back data](http://wiki.ros.org/ROS/Tutorials/Recording%20and%20playing%20back%20data)
+4. [Introduction to tf](http://wiki.ros.org/tf/Tutorials/Introduction%20to%20tf)
+5. [Writing a tf broadcaster (C++)](http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20broadcaster%20%28C%2B%2B%29)
+6. [Writing a tf listener (C++)](http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28C%2B%2B%29)
+7. [Adding a frame (C++)](http://wiki.ros.org/tf/Tutorials/Adding%20a%20frame%20%28C%2B%2B%29)
+8. [Learning about tf and time (C++)](http://wiki.ros.org/tf/Tutorials/tf%20and%20Time%20%28C%2B%2B%29)
+9. [Time travel with tf (C++)](http://wiki.ros.org/tf/Tutorials/Time%20travel%20with%20tf%20%28C%2B%2B%29)
 
 ## Getting Started
 
