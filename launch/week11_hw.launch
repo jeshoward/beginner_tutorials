@@ -1,6 +1,13 @@
 <launch>
-  <group ns="Week11_HW">
-    <node pkg="beginner_tutorials" type="talker" name="talker"/>
-    <node pkg="beginner_tutorials" type="listener" name="listener"/>
-  </group>
+	<arg name="record_bag" default="false"/>
+	
+	<group if="$(arg record_bag)">
+		<node pkg="rosbag" type="record" name="rosbag" output="screen"
+			  args="-a --duration=15"/>
+	</group>
+	
+	<group ns="Week11_HW">
+		<node pkg="beginner_tutorials" type="talker" name="talker"/>
+		<node pkg="beginner_tutorials" type="listener" name="listener"/>
+	</group>
 </launch>
