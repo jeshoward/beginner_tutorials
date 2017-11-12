@@ -1,7 +1,7 @@
 # %Tag(FULLTEXT)%
 cmake_minimum_required(VERSION 2.8.3)
 project(beginner_tutorials)
-
+add_compile_options(-std=c++11 -Wall -Wextra)
 
 ## Find catkin and any catkin packages
 find_package(catkin REQUIRED COMPONENTS 
