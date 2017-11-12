@@ -1,12 +1,19 @@
-# ENPM808X - ROS Beginner Tutorials
-This is the implementation of several ROS beginner tutorials:
+# ENPM808X - ROS Services, Logging, and Launch Files
+This is the continuation of the implementation of several ROS beginner tutorials:
 1. [Creating a Workspace for Catkin](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 2. [Creating a ROS Package](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 3. [Building a ROS Package](http://wiki.ros.org/ROS/Tutorials/BuildingPackages)
 4. [Creating a ROS msg and srv](http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv)
 5. [Writing a Simple Publisher and Subscriber (C++)](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29)
 
-The goal of the project was to install ROS and Catkin, create a workspace, and create a simple publisher and subscriber package.
+The original goal of the project was to install ROS and Catkin, create a workspace, and create a simple publisher and subscriber package. This branch (Week10_HW) continues the effort by applying lessons learned in the following intermediate ROS tutorials:
+1. [Getting started with roswtf](http://wiki.ros.org/ROS/Tutorials/Getting%20started%20with%20roswtf)
+2. [Understanding ROS Services and Parameters](http://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams)
+3. [Using rqt_console and roslaunch](http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch)
+
+Additional services added to the beginner tutorials are: Add Two Ints
+
+The Add Two Ints service was implemented as per the tutorial [Writing a Simple Service and Client](http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29). 
 
 ## Getting Started
 
@@ -70,7 +77,7 @@ cd ~/catkin_ws/src
 ```
 This is the location you will want to add your new ROS package.
 ```
-git clone --recursive https://github.com/jeshoward/beginner_tutorials
+git clone -b Week10_HW https://github.com/jeshoward/beginner_tutorials
 ```
 
 Navigate back up to your Catkin workspace directory:
@@ -98,22 +105,50 @@ cd ~/catkin_ws/
 source ./devel/setup.bash
 ```
 
-Next we will start our "talker" publisher:
+Next we will start our launcher, which begins the addition and multiplication servers:
 ```
-rosrun beginner_tutorials talker
-```
-
-Running the talker will again tie up your terminal window, so we'll need to open an additional window to run the listener.
-
-In the new terminal window (your third) source the workspace's setup.sh file again:
-```
-cd ~/catkin_ws/
-source ./devel/setup.bash
+roslaunch beginner_tutorials week10_hw.launch
 ```
 
-Then begin running the listener:
+Open a new terminal window to run the addition or multiplication services. 
+
+#### Add Two Ints
+Add two ints takes two integer arguments, a and b, and adds them together.
 ```
-rosrun beginner_tutorials listener
+rosrun beginner_tutorials add_two_ints_client a b
 ```
 
-When you are done, press Ctrl-C to terminate the talker and the listener.
+You can also input the arguments for a and b from the launcher by using the following code:
+```
+roslaunch beginner_tutorials week10_hw.launch a:=1 b:=2
+```
+
+When you are done, press Ctrl-C to terminate the servers.
+
+## License
+BSD 3-Clause License
+
+Copyright (c) 2017, Jessica Howard
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of the <organization> nor the
+      names of its contributors may be used to endorse or promote products
+      derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

@@ -1,6 +1,12 @@
 /*
- * @copyright Copyright (C) 2008, Morgan Quigley and Willow Garage, Inc.
+ * 
+ * @author Jessica Howard
+ * @file talker.cpp
+ * @brief Demonstration of how messages are sent on ROS
  *
+ * 
+ * @copyright Copyright (C) 2017, Jessica Howard
+ * @license 3-Clause BSD License
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *   * Redistributions of source code must retain the above copyright notice,
@@ -27,15 +33,9 @@
 // %Tag(FULLTEXT)%
 
 #include <sstream>
-
-// %Tag(ROS_HEADER)%
+#include "beginner_tutorials/ChangeRate.h"
 #include "ros/ros.h"
-// %EndTag(ROS_HEADER)%
-// %Tag(MSG_HEADER)%
 #include "std_msgs/String.h"
-// %EndTag(MSG_HEADER)%
-
-
 
 /**
  * @brief This tutorial demonstrates simple sending of messages over the ROS system.
@@ -54,7 +54,6 @@ int main(int argc, char **argv) {
 // %Tag(INIT)%
   ros::init(argc, argv, "talker");
 // %EndTag(INIT)%
-
   /**
    * @detail NodeHandle is the main access point to communications with the ROS system.
    * The first NodeHandle constructed will fully initialize this node, and the last
@@ -86,7 +85,7 @@ int main(int argc, char **argv) {
 // %EndTag(PUBLISHER)%
 
 // %Tag(LOOP_RATE)%
-  ros::Rate loop_rate(10);
+  ros::Rate loop_rate(1);
 // %EndTag(LOOP_RATE)%
 
   /**
@@ -104,7 +103,7 @@ int main(int argc, char **argv) {
     std_msgs::String msg;
 
     std::stringstream ss;
-    ss << "These tutorials are not awesome " << count;
+    ss << "Meow " << count;
     msg.data = ss.str();
 // %EndTag(FILL_MESSAGE)%
 

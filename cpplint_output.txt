@@ -1,0 +1,7 @@
+Done processing ./src/listener.cpp
+./src/add_two_ints_server.cpp:43:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::AddTwoInts::Request &req  [runtime/references] [2]
+./src/add_two_ints_server.cpp:44:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::AddTwoInts::Response &res  [runtime/references] [2]
+Done processing ./src/add_two_ints_server.cpp
+Done processing ./src/add_two_ints_client.cpp
+Done processing ./src/talker.cpp
+Total errors found: 2
