@@ -33,7 +33,8 @@
 // %Tag(FULLTEXT)%
 
 #include <sstream>
-#include "ros/ros.h"
+#include <ros/ros.h>
+#include <tf/transform_broadcaster.h>
 #include "std_msgs/String.h"
 
 /**
@@ -61,7 +62,10 @@ int main(int argc, char **argv) {
 // %Tag(NODEHANDLE)%
   ros::NodeHandle n;
 // %EndTag(NODEHANDLE)%
-
+  
+  tf::TransformBroadcaster br;
+  tf::Transform transform;
+  
   /**
    * @detail The advertise() function is how you tell ROS that you want to
    * publish on a given topic name. This invokes a call to the ROS
@@ -96,9 +100,18 @@ int main(int argc, char **argv) {
   while (ros::ok()) {
 // %EndTag(ROS_OK)%
     /**
+     * Static transform of a frame
+     * child frame is "talk"
+     * parent frame is "world"
+     */
+    transform.setOrigin( tf::Vector3(0.0, 2.0, 0.0) );
+    transform.setRotation( tf::Quaternion(0, 0, 0, 1) );
+    br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
+// %Tag(FILL_MESSAGE)%
+    /**
      * This is a message object. You stuff it with data, and then publish it.
      */
-// %Tag(FILL_MESSAGE)%
+
     std_msgs::String msg;
 
     std::stringstream ss;
