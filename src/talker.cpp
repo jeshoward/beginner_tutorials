@@ -33,7 +33,6 @@
 // %Tag(FULLTEXT)%
 
 #include <sstream>
-#include "beginner_tutorials/ChangeRate.h"
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
