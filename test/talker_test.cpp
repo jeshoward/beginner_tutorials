@@ -37,27 +37,25 @@
 #include "std_msgs/String.h"
 
 struct Helper {
-	Helper() : count(0) { }
-	
-	void cb(const std_msgs::String::ConstPtr& msg) {
-		++count;
-	}
-	
-	uint32_t count;
+  Helper() : count(0) { }
+
+  void cb(const std_msgs::String::ConstPtr& msg) {
+    ++count;
+  }
+  uint32_t count;
 };
 
 TEST(TestSuite, talkerTest) {
-	ros::NodeHandle nh;
-	Helper h;
-	ros::Publisher pub = nh.advertise<std_msgs::String>("chatter", 1000);
-	ros::Subscriber sub = nh.subscribe("chatter", 1000, &Helper::cb, &h);
-	
-	EXPECT_EQ(pub.getNumSubscribers(), 1U);
-	EXPECT_EQ(sub.getNumPublishers(), 1U);
+  ros::NodeHandle nh;
+  Helper h;
+  ros::Publisher pub = nh.advertise<std_msgs::String>("chatter", 1000);
+  ros::Subscriber sub = nh.subscribe("chatter", 1000, &Helper::cb, &h);
+  EXPECT_EQ(pub.getNumSubscribers(), 1U);
+  EXPECT_EQ(sub.getNumPublishers(), 1U);
 }
 
 int main(int argc, char **argv) {
-	ros::init(argc, argv, "talker_test");
-	testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
+  ros::init(argc, argv, "talker_test");
+  testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
