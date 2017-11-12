@@ -148,6 +148,12 @@ roslaunch beginner_tutorials week10_hw.launch a:=1 b:=2
 
 When you are done, press Ctrl-C to terminate the servers.
 
+### Testing the project
+The tests for this tutorial are run under gtest. To run the unit tests navigate to your ~/catkin_ws/ directory and type:
+```
+catkin_make run_tests
+```
+
 ## License
 BSD 3-Clause License
 
