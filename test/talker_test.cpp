@@ -36,6 +36,9 @@
 #include <tf/transform_broadcaster.h>
 #include "std_msgs/String.h"
 
+/**
+ * @brief callback helper pointer
+ */
 struct Helper {
   Helper() : count(0) { }
 
@@ -45,6 +48,9 @@ struct Helper {
   uint32_t count;
 };
 
+/**
+ * @brief tests existence of publisher and subscriber
+ */
 TEST(TestSuite, talkerTest) {
   ros::NodeHandle nh;
   Helper h;
