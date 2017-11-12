@@ -42,7 +42,7 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 ```
 
 2. Set up your keys
-```
+```http://wiki.ros.org/gtest
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 ```
 
@@ -80,6 +80,18 @@ Full instructions for installing Catkin can be found [here](www.ros.org/wiki/cat
 ```
 sudo apt-get install ros-lunar-catkin
 ```
+
+#### Installing rqt_tf_tree
+[rqt_tf_tree](http://wiki.ros.org/rqt_tf_tree) is a runtime tool for visualizing the tree of frames that are being broadcast over ROS. To install:
+```
+sudo apt-get install ros-kinetic-rqt-tf-tree
+```
+
+To use:
+```
+rosrun rqt_tf_tree rqt_tf_tree
+```
+
 
 #### Installing the beginner tutorial from this repository
 You will want to navigate to your Catkin workspace's src directory
